@@ -1,0 +1,26 @@
+{
+  "name": "lazyrethink",
+  "version": "1.0.0",
+  "description": "lazy wrapper around rethinkdbdash",
+  "main": "src/index.js",
+  "keywords": [
+    "lambda",
+    "rethinkdb",
+    "lazy",
+    "proxy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jameskyburz/lazyrethink.git"
+  },
+  "author": {
+    "name": "James Kyburz",
+    "email": "james.kyburz@gmail.com"
+  },
+  "files": [
+    "src"
+  ],
+  "dependencies": {
+  },
+  "license": "Apache-2.0"
+}
