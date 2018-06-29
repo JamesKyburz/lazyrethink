@@ -8,7 +8,7 @@ module.exports = options => {
           return () => {
             if (db) {
               return db
-                .getPool()
+                .getPoolMaster()
                 .drain()
                 .then(() => {
                   db = null
