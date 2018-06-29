@@ -15,7 +15,7 @@ lazy wrapper around rethinkdbdash
 
 ```javascript
 const options = undefined // rethinkdbdash options
-const db = require('ladyrethink')(options)
+const db = require('lazyrethink')(options)
 db
 .db('test')
 .table('test')
