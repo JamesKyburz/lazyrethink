@@ -27,7 +27,9 @@ module.exports = options => {
         ) {
           return
         }
-        db = db || require('rethinkdbdash')(options)
+        if (!db || db.getPoolMaster().getLength() === 0) {
+          db = require('rethinkdbdash')(options)
+        }
         const result = db[prop]
         return result && result.bind ? result.bind(db) : result
       }
