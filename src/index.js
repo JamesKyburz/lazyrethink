@@ -1,5 +1,13 @@
 module.exports = options => {
   let db
+  let created = 0
+  const assertDb = () => {
+    if (db && created && Date.now() - created < 100) return
+    if (!db || db.getPoolMaster().getLength() === 0) {
+      created = Date.now()
+      db = require('rethinkdbdash')(options)
+    }
+  }
   return new Proxy(
     {},
     {
@@ -27,9 +35,7 @@ module.exports = options => {
         ) {
           return
         }
-        if (!db || db.getPoolMaster().getLength() === 0) {
-          db = require('rethinkdbdash')(options)
-        }
+        assertDb()
         const result = db[prop]
         return result && result.bind ? result.bind(db) : result
       }
